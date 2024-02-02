@@ -1,0 +1,78 @@
+Liste des bateaux participants SELECT * FROM P03_Bateau ;
+Liste des bateaux dont le nom contient « or » ou « df » (choisir les chaînes modèles adaptés)
+SELECT * FROM P03_  WHERE bateau_nom LIKE ‘%LA %’ OR ‘%DO%’;
+Liste des skippers dont le bateau à été lancé entre 2010 et 2018
+SELECT * FROM P03_Skipper WHERE bateau_nom IN(SELECT bateau_nom FROM P03_Bateau WHERE annee_lancement BETWEEN 2010 AND 2018) ; //revenir dessus
+Nombre de classes de bateaux
+SELECT COUNT(DISTINCT classe_nom) nombre_classe_bateaux FROM P03_Bateau ;
+Liste des bateaux dont un skipper a un nom qui commence entre B et L
+SELECT * FROM P03_bateau.*, P03_skipper.skipper_nom FROM P03_bateau INNER JOIN P03_skipper ON P03_bateau.bateau_nom = P03_skipper.nom_skipper WHERE  P03_skipper_nom BETWEEN ‘B%’ AND ‘L%’
+Skippers des bateaux « ??? » et « ??? » (choisir 2 noms de bateaux) SELECT * FROM P03_Skipper WHERE bateau_nom IN(‘REDMAN’, ‘VOLVO’) ;
+Noms des bateaux pilotés par un skipper prénommé « Olivier »
+SELECT * FROM P03_bateau.*, P03_skipper.skipper_nom FROM P03_bateau INNER JOIN P03_skipper ON P03_bateau.bateau_nom = P03_skipper.nom_skipper WHERE  skipper_nom  LIKE ’ %Olivier %’ ; //Olivier %
+Liste des skippers navigant sur un bateau dont le nom commence par « G » SELECT SELECT * FROM P03_Skipper WHERE bateau_nom LIKE ‘ G%’ ;
+Nombre de bateaux par catégorie
+SELECT classe_bateau, COUNT(bateau_nom) NB_CATEGORIE FROM P03_Bateau GROUP BY
+classe_bateau ;
+Catégories ayant plus de 10 bateaux
+SELECT classe_bateau categorie,  COUNT(bateau_nom) NB_Bateaux FROM P03_Bateau NB_Bateaux>=10;
+
+                           ***************************************************************
+Version psql :
+Liste des bateaux participants SELECT * FROM P03_Bateau ;
+Liste des bateaux dont le nom contient « or » ou « df » (choisir les chaînes modèles adaptés)
+SELECT * FROM P03_  WHERE bateau_nom LIKE ~ '.*LA ~ '.* OR ~ '.*DO ~ '.*;
+Liste des skippers dont le bateau à été lancé entre 2010 et 2018
+SELECT * FROM P03_Skipper WHERE bateau_nom IN(SELECT bateau_nom FROM P03_Bateau WHERE annee_lancement BETWEEN 2010 AND 2018) ; //revenir dessus
+Nombre de classes de bateaux
+SELECT COUNT(DISTINCT classe_nom) nombre_classe_bateaux FROM P03_Bateau ;
+Liste des bateaux dont un skipper a un nom qui commence entre B et L
+SELECT * FROM P03_Bateau WHERE bateau_nom IN(SELECT bateau_nom FROM P03_Skipper WHERE nom_skipper IN(B,C,D,E,F,G,H,I,J,K,L) ; // between ‘B’ and ‘L’ ORDER BY ASC ;
+Skippers des bateaux « ??? » et « ??? » (choisir 2 noms de bateaux) SELECT * FROM P03_Skipper WHERE bateau_nom IN(‘REDMAN’, ‘VOLVO’) ;
+Noms des bateaux pilotés par un skipper prénommé « Olivier »
+SELECT * FROM P03_bateau.*, P03_skipper.skipper_nom FROM P03_bateau INNER JOIN P03_skipper ON P03_bateau.bateau_nom = P03_skipper.nom_skipper WHERE  skipper_nom  LIKE ~ '.*Olivier ~ '.* ; //Olivier %
+Liste des skippers navigant sur un bateau dont le nom commence par « G » SELECT SELECT * FROM P03_Skipper WHERE bateau_nom LIKE ~ '.*G ~ '.*’ ;
+Nombre de bateaux par catégorie
+SELECT classe_bateau, COUNT(bateau_nom) NB_CATEGORIE FROM P03_Bateau GROUP BY
+classe_bateau ;
+Catégories ayant plus de 10 bateaux
+SELECT classe_bateau categorie,  COUNT(bateau_nom) NB_Bateaux FROM P03_Bateau NB_Bateaux>=10;
+Liste des bateaux participants SELECT * FROM P03_Bateau ;
+Liste des bateaux dont le nom contient « or » ou « df » (choisir les chaînes modèles adaptés)
+SELECT * FROM P03_  WHERE bateau_nom LIKE ‘%LA %’ OR ‘%DO%’;
+Liste des skippers dont le bateau à été lancé entre 2010 et 2018
+SELECT * FROM P03_Skipper WHERE bateau_nom IN(SELECT bateau_nom FROM P03_Bateau WHERE annee_lancement BETWEEN 2010 AND 2018) ; //revenir dessus
+Nombre de classes de bateaux
+SELECT COUNT(DISTINCT classe_nom) nombre_classe_bateaux FROM P03_Bateau ;
+Liste des bateaux dont un skipper a un nom qui commence entre B et L
+SELECT * FROM P03_bateau.*, P03_skipper.skipper_nom FROM P03_bateau INNER JOIN P03_skipper ON P03_bateau.bateau_nom = P03_skipper.nom_skipper WHERE  P03_skipper_nom BETWEEN ‘B%’ AND ‘L%’
+Skippers des bateaux « ??? » et « ??? » (choisir 2 noms de bateaux) SELECT * FROM P03_Skipper WHERE bateau_nom IN(‘REDMAN’, ‘VOLVO’) ;
+Noms des bateaux pilotés par un skipper prénommé « Olivier »
+SELECT * FROM P03_bateau.*, P03_skipper.skipper_nom FROM P03_bateau INNER JOIN P03_skipper ON P03_bateau.bateau_nom = P03_skipper.nom_skipper WHERE  skipper_nom  LIKE ’ %Olivier %’ ; //Olivier %
+Liste des skippers navigant sur un bateau dont le nom commence par « G » SELECT SELECT * FROM P03_Skipper WHERE bateau_nom LIKE ‘ G%’ ;
+Nombre de bateaux par catégorie
+SELECT classe_bateau, COUNT(bateau_nom) NB_CATEGORIE FROM P03_Bateau GROUP BY
+classe_bateau ;
+Catégories ayant plus de 10 bateaux
+SELECT classe_bateau categorie,  COUNT(bateau_nom) NB_Bateaux FROM P03_Bateau NB_Bateaux>=10;
+
+                           ***************************************************************
+Version psql :
+Liste des bateaux participants SELECT * FROM P03_Bateau ;
+Liste des bateaux dont le nom contient « or » ou « df » (choisir les chaînes modèles adaptés)
+SELECT * FROM P03_  WHERE bateau_nom LIKE ~ '.*LA ~ '.* OR ~ '.*DO ~ '.*;
+Liste des skippers dont le bateau à été lancé entre 2010 et 2018
+SELECT * FROM P03_Skipper WHERE bateau_nom IN(SELECT bateau_nom FROM P03_Bateau WHERE annee_lancement BETWEEN 2010 AND 2018) ; //revenir dessus
+Nombre de classes de bateaux
+SELECT COUNT(DISTINCT classe_nom) nombre_classe_bateaux FROM P03_Bateau ;
+Liste des bateaux dont un skipper a un nom qui commence entre B et L
+SELECT * FROM P03_Bateau WHERE bateau_nom IN(SELECT bateau_nom FROM P03_Skipper WHERE nom_skipper IN(B,C,D,E,F,G,H,I,J,K,L) ; // between ‘B’ and ‘L’ ORDER BY ASC ;
+Skippers des bateaux « ??? » et « ??? » (choisir 2 noms de bateaux) SELECT * FROM P03_Skipper WHERE bateau_nom IN(‘REDMAN’, ‘VOLVO’) ;
+Noms des bateaux pilotés par un skipper prénommé « Olivier »
+SELECT * FROM P03_bateau.*, P03_skipper.skipper_nom FROM P03_bateau INNER JOIN P03_skipper ON P03_bateau.bateau_nom = P03_skipper.nom_skipper WHERE  skipper_nom  LIKE ~ '.*Olivier ~ '.* ; //Olivier %
+Liste des skippers navigant sur un bateau dont le nom commence par « G » SELECT SELECT * FROM P03_Skipper WHERE bateau_nom LIKE ~ '.*G ~ '.*’ ;
+Nombre de bateaux par catégorie
+SELECT classe_bateau, COUNT(bateau_nom) NB_CATEGORIE FROM P03_Bateau GROUP BY
+classe_bateau ;
+Catégories ayant plus de 10 bateaux
+SELECT classe_bateau categorie,  COUNT(bateau_nom) NB_Bateaux FROM P03_Bateau NB_Bateaux>=10;
